@@ -16,7 +16,11 @@ public class TNTFill extends JavaPlugin {
     public void onDisable() {
         getLogger().info("Disabling TNTFill. If you need me to update this plugin, email at gogobebe2@gmail.com");
     }
-
+    
+    private List<Block> findBlocks(int radius) {
+        
+    }
+    
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (label.equalsIgnoreCase("tntfill")) {
@@ -29,9 +33,20 @@ public class TNTFill extends JavaPlugin {
                 player.sendMessage(ChatColor.RED + "Error! Correct usage: " + ChatColor.BLUE + "/tntfill <radius>");
                 return true;
             }
-
             
-
+            int radius;
+            try {
+                radius = Integer.parseInt(args[0]);
+            }
+            catch (NumberFormatException exc) {
+                player.sendMessage(ChatColor.RED + "Error! " + ChatColour.DARK_RED + args[0] + ChatColor.RED + " is not an number!");
+                return true;
+            }
+            
+            if (radius > 10) {
+                radius = 10;
+                player.sendMessage(ChatColor.PURPLE + "Maximum radius is 10. Using 10 as your radius....")
+            }
             return true;
         }
         return false;
