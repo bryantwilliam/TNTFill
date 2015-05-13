@@ -40,13 +40,11 @@ public class TNTFill extends JavaPlugin {
         return dispensers;
     }
 
-    private void fillWithTNT(List<Dispenser> dispensers, List<ItemStack> tnt) {
+    private void fillWithTNT(List<Dispenser> dispensers, List<ItemStack> tnts) {
         Dispenser dispenser = dispensers.get(0);
-        int count = dispensers.size() - 1;
-        for (int TNTindex = 0; TNTindex < tnt.size(); TNTindex++) {
-            dispenser.getInventory().addItem(tnt.get(TNTindex));
-            if (TNTindex == count) {
-                count *= 2;
+        for (ItemStack tnt : tnts) {
+            dispenser.getInventory().addItem(tnt);
+            if (dispensers.indexOf(dispenser) >= dispensers.size() - 1) {
                 dispenser = dispensers.get(0);
             }
             else {
@@ -57,7 +55,7 @@ public class TNTFill extends JavaPlugin {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (label.equalsIgnoreCase("tntfill")) {
+        if (label.equalsIgnoreCase("tntfill") || label.equalsIgnoreCase("filltnt")) {
             if (!(sender instanceof Player)) {
                 sender.sendMessage(ChatColor.RED + "Error! You have to be a player to use this command!");
                 return true;
@@ -98,6 +96,7 @@ public class TNTFill extends JavaPlugin {
                     tnt.add(new ItemStack(Material.TNT, 1));
                 }
                 tntStack.setAmount(0);
+                inventory.setItem(slot, tntStack);
                 player.updateInventory();
             }
             fillWithTNT(dispensers, tnt);
