@@ -1,5 +1,5 @@
 name: TNTFill
-version: 1.0.0-DEVELOPMENT-SNAPSHOT
+version: 1.0.1-DEVELOPMENT-SNAPSHOT
 main: com.gmail.gogobebe2.tntfill.TNTFill
 description: Fill all dispensers in a radius.
 author: William Bryant (gogobebe2)
