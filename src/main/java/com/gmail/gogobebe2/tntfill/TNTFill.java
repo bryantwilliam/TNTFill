@@ -17,7 +17,7 @@ public class TNTFill extends JavaPlugin {
         getLogger().info("Disabling TNTFill. If you need me to update this plugin, email at gogobebe2@gmail.com");
     }
     
-    private List<Block> findBlocks(int radius) {
+    private List<Block> findDispensers(int radius) {
         
     }
     
@@ -47,6 +47,7 @@ public class TNTFill extends JavaPlugin {
                 radius = 10;
                 player.sendMessage(ChatColor.PURPLE + "Maximum radius is 10. Using 10 as your radius....")
             }
+            findDispensers(radius);
             return true;
         }
         return false;
