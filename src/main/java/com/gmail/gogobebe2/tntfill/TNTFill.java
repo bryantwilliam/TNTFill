@@ -100,7 +100,9 @@ public class TNTFill extends JavaPlugin {
                 player.updateInventory();
             }
             fillWithTNT(dispensers, tnt);
-            player.sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "Filled " + dispensers.size() + " dispensers with " + tnt.size() + " tnt");
+            player.sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "Filled " + dispensers.size()
+                    + " dispensers with " + ChatColor.DARK_GREEN + tnt.size() + ChatColor.GREEN
+                    + ChatColor.BOLD + " tnt");
             return true;
         }
         return false;
