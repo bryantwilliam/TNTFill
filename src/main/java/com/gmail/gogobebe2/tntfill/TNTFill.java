@@ -80,9 +80,9 @@ public class TNTFill extends JavaPlugin {
                 return true;
             }
 
-            if (radius > 10) {
-                radius = 10;
-                player.sendMessage(ChatColor.GOLD + "Maximum radius is 10. Using 10 as your radius....");
+            if (radius > 25) {
+                radius = 25;
+                player.sendMessage(ChatColor.GOLD + "Maximum radius is 25. Using 25 as your radius....");
             }
             List<Dispenser> dispensers = findDispensers(player.getLocation(), radius);
             if (dispensers.isEmpty()) {
